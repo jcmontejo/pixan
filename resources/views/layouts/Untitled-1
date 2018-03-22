@@ -1,0 +1,1 @@
+php artisan crud:generate Product --fields="name:string:required, category:string:required, description:text:required, stock:integer:required, deadline:datetime:required, price:decimal:required" --route=yes --pk=id --view-path="admin" --namespace=Admin --route-group=admin
