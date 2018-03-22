@@ -21,7 +21,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $product = Product::all()->where('deadline', '<=', Carbon::today());
 
         return view('backEnd.admin.product.index', compact('product'));
     }
