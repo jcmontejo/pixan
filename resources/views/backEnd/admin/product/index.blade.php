@@ -24,21 +24,35 @@
         font-size: 28pt;
         color: #616161;
     }
-    .name{
+
+    .name {
         font-size: 18pt;
         color: #616161;
     }
-    .description{
+
+    .description {
         font-size: 16pt;
         color: #616161;
     }
-    .price{
+
+    .price {
         font-size: 28pt;
-        color:  #010101;
+        color: #010101;
     }
 </style>
 @endpush @section('content')
 <div class="container-fluid py-5">
+    @if(session()->has('message'))
+    <div>
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3>
+                <strong>Mensaje del sistema:</strong> {{ session()->get('message') }}</h3>
+        </div>
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-6">
             <h1 class="title">Mis Productos</h1>
@@ -54,7 +68,7 @@
         @foreach($product as $item)
         <div class="col-md-4">
             <div class="card">
-            <img class="card-img-top img-fluid" src="{{asset('uploads')}}/{{$item->filename}}" alt="Card image cap">
+                <img class="card-img-top img-fluid" src="{{asset('uploads')}}/{{$item->filename}}" alt="Card image cap">
                 <div class="card-block">
                     <h4 class="card-title name">{{$item->name}}</h4>
                     <br>
